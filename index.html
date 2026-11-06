@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050515">
+<title>MULTIVERSE X | Beyond Reality</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg:#050515;
+  --panel:#101027;
+  --purple:#a855f7;
+  --blue:#22d3ee;
+  --white:#f5f3ff;
+}
+
+* {margin:0;padding:0;box-sizing:border-box}
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.4;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%,white,transparent),
+    radial-gradient(2px 2px at 70% 60%,#a855f7,transparent),
+    radial-gradient(1px 1px at 40% 80%,white,transparent);
+  background-size:180px 180px;
+  z-index:-1;
+}
+
+nav {
+  height:76px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #ffffff12;
+  background:#080817dd;
+  backdrop-filter:blur(16px);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo {
+  font-family:Orbitron,sans-serif;
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.logo span {color:var(--purple)}
+
+.navlinks {
+  display:flex;
+  gap:25px;
+}
+
+.navlinks a {
+  color:#aaa9c5;
+  text-decoration:none;
+  font-size:13px;
+  transition:.3s;
+}
+
+.navlinks a:hover {color:white}
+
+.level {
+  border:1px solid #a855f755;
+  background:#a855f718;
+  border-radius:30px;
+  padding:10px 16px;
+  font-size:12px;
+}
+
+.hero {
+  min-height:610px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:65px 8%;
+  gap:30px;
+  overflow:hidden;
+}
+
+.eyebrow {
+  color:var(--blue);
+  font-size:11px;
+  letter-spacing:4px;
+  font-weight:700;
+  margin-bottom:24px;
+}
+
+h1 {
+  font-family:Orbitron,sans-serif;
+  font-size:clamp(38px,6vw,76px);
+  line-height:1.13;
+  letter-spacing:-3px;
+}
+
+h1 span {
+  background:linear-gradient(90deg,#a855f7,#22d3ee);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.tagline {
+  margin-top:23px;
+  color:#aaa9c5;
+  line-height:1.8;
+  max-width:430px;
+  font-size:14px;
+}
+
+.primary {
+  margin-top:30px;
+  padding:16px 27px;
+  border:1px solid #b66aff;
+  border-radius:40px;
+  color:white;
+  background:linear-gradient(100deg,#7c3aed,#2563eb);
+  box-shadow:0 0 30px #9333ea66;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.primary:hover {
+  transform:translateY(-4px);
+  box-shadow:0 0 45px #9333eaaa;
+}
+
+.portal-area {
+  height:400px;
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+
+.portal {
+  width:min(320px,75vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  position:relative;
+  background:
+   radial-gradient(circle,#07071b 32%,#4312a5 38%,#0b0a29 48%,#2563eb 53%,#09091e 61%);
+  box-shadow:0 0 45px #9333ea,0 0 100px #2563eb77,inset 0 0 45px #a855f755;
+  animation:float 5s ease-in-out infinite;
+}
+
+.portal::before,.portal::after {
+  content:"";
+  position:absolute;
+  inset:-16px;
+  border:2px solid #a855f7;
+  border-radius:50%;
+  box-shadow:0 0 20px #a855f7;
+  animation:spin 12s linear infinite;
+}
+
+.portal::after {
+  inset:-29px;
+  border-color:#22d3ee88;
+  border-style:dashed;
+  animation:spin 20s linear infinite reverse;
+}
+
+.portal-core {
+  text-align:center;
+  font-family:Orbitron,sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  text-shadow:0 0 20px #a855f7;
+}
+
+@keyframes spin {to{transform:rotate(360deg)}}
+@keyframes float {50%{transform:translateY(-13px)}}
+
+.section {
+  padding:65px 8%;
+}
+
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:30px;
+  gap:15px;
+}
+
+.section h2 {
+  font-family:Orbitron,sans-serif;
+  font-size:clamp(22px,3vw,32px);
+}
+
+.muted {color:#85839e;font-size:13px;margin-top:10px}
+
+.worlds {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+}
+
+.world {
+  min-height:190px;
+  background:linear-gradient(145deg,#17142e,#0a0a1c);
+  border:1px solid #ffffff15;
+  border-radius:18px;
+  padding:23px 15px;
+  text-align:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.world:hover {
+  transform:translateY(-8px);
+  border-color:#a855f7;
+  box-shadow:0 10px 35px #9333ea22;
+}
+
+.world .emoji {font-size:38px;margin-bottom:19px}
+.world h3 {font-size:14px;margin-bottom:8px}
+.world p {font-size:11px;color:#9290aa;line-height:1.5}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.stat {
+  background:#101027;
+  border:1px solid #ffffff12;
+  border-radius:16px;
+  padding:20px;
+}
+
+.stat strong {
+  display:block;
+  font-family:Orbitron,sans-serif;
+  font-size:25px;
+  color:#c084fc;
+  margin-top:10px;
+}
+
+.stat small {color:#9290aa}
+
+.progress {
+  height:7px;
+  background:#27223f;
+  border-radius:10px;
+  margin-top:13px;
+  overflow:hidden;
+}
+
+.progress div {
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#a855f7,#22d3ee);
+  transition:width .5s;
+}
+
+footer {
+  border-top:1px solid #ffffff12;
+  text-align:center;
+  padding:35px 15px;
+  color:#85839e;
+  font-size:12px;
+}
+
+footer span {color:#c084fc}
+
+.modal {
+  position:fixed;
+  inset:0;
+  background:#000c;
+  backdrop-filter:blur(12px);
+  display:none;
+  place-items:center;
+  padding:20px;
+  z-index:20;
+}
+
+.modal.show {display:grid}
+
+.modal-box {
+  background:#111127;
+  border:1px solid #a855f7;
+  border-radius:22px;
+  padding:35px;
+  width:min(430px,100%);
+  text-align:center;
+  box-shadow:0 0 60px #9333ea44;
+}
+
+.modal-box .emoji {font-size:55px}
+.modal-box h2 {font-family:Orbitron,sans-serif;margin:15px 0}
+.modal-box p {color:#aaa9c5;line-height:1.7;font-size:13px}
+
+.close {
+  float:right;
+  background:none;
+  border:0;
+  color:white;
+  font-size:24px;
+  cursor:pointer;
+}
+
+@media(max-width:850px) {
+  .hero {grid-template-columns:1fr;text-align:center;padding:55px 6%}
+  .tagline {margin-left:auto;margin-right:auto}
+  .portal-area {height:340px}
+  .worlds {grid-template-columns:repeat(2,1fr)}
+  .world:last-child {grid-column:span 2}
+  .navlinks {display:none}
+}
+
+@media(max-width:420px) {
+  nav {padding:0 5%;height:65px}
+  .logo {font-size:17px}
+  .level {font-size:10px;padding:8px}
+  .hero {min-height:auto}
+  .portal-area {height:300px}
+  .section {padding:45px 5%}
+  .world {min-height:165px;padding:18px 10px}
+  .stats {grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">MULTIVERSE<span> X</span></div>
+  <div class="navlinks">
+    <a href="#home">Home</a>
+    <a href="#worlds">Worlds</a>
+    <a href="#progress">Progress</a>
+  </div>
+  <div class="level">👑 LV. <b id="level">1</b></div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">✦ THE NEXT DIMENSION ✦</div>
+    <h1>BEYOND<br><span>REALITY.</span></h1>
+    <p class="tagline">
+      Enter a limitless universe where imagination has no boundaries.
+      Explore mysterious worlds, discover hidden dimensions and create
+      your own journey.
+    </p>
+    <button class="primary" onclick="enterUniverse()">
+      🚀 ENTER THE MULTIVERSE →
+    </button>
+  </div>
+
+  <div class="portal-area">
+    <div class="portal">
+      <div class="portal-core">DIMENSION X<br>✦ OPEN ✦</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="worlds">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">YOUR JOURNEY STARTS HERE</div>
+      <h2>EXPLORE WORLDS</h2>
+      <p class="muted">Five dimensions. Infinite possibilities.</p>
+    </div>
+  </div>
+
+  <div class="worlds">
+    <div class="world" onclick="openWorld(0)">
+      <div class="emoji">🌌</div>
+      <h3>GALAXY WORLD</h3>
+      <p>Explore the cosmos</p>
+    </div>
+    <div class="world" onclick="openWorld(1)">
+      <div class="emoji">🌆</div>
+      <h3>CYBER WORLD</h3>
+      <p>Step into the future</p>
+    </div>
+    <div class="world" onclick="openWorld(2)">
+      <div class="emoji">🏝️</div>
+      <h3>FANTASY WORLD</h3>
+      <p>Live the magic</p>
+    </div>
+    <div class="world" onclick="openWorld(3)">
+      <div class="emoji">⏳</div>
+      <h3>TIME WORLD</h3>
+      <p>Travel through time</p>
+    </div>
+    <div class="world" onclick="openWorld(4)">
+      <div class="emoji">💎</div>
+      <h3>QUANTUM WORLD</h3>
+      <p>Discover the unknown</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="progress">
+  <div class="eyebrow">YOUR MULTIVERSE PROFILE</div>
+  <h2>YOUR PROGRESS</h2>
+
+  <div class="stats">
+    <div class="stat">
+      <small>⭐ TOTAL EXPERIENCE</small>
+      <strong id="xp">0 XP</strong>
+    </div>
+    <div class="stat">
+      <small>🌍 WORLDS EXPLORED</small>
+      <strong id="visited">0 / 5</strong>
+    </div>
+    <div class="stat">
+      <small>🏆 ACHIEVEMENTS</small>
+      <strong id="achievements">0</strong>
+    </div>
+  </div>
+
+  <div class="stat" style="margin-top:15px">
+    <small>LEVEL PROGRESS</small>
+    <div class="progress"><div id="bar"></div></div>
+    <p class="muted" id="progressText">0 / 100 XP to next level</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo">MULTIVERSE<span> X</span></div>
+  <p style="margin-top:12px">BEYOND REALITY · EXPLORE INFINITY</p>
+  <p style="margin-top:10px">Created with imagination & code.</p>
+</footer>
+
+<div class="modal" id="modal" onclick="closeOutside(event)">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="emoji" id="modalEmoji">🌌</div>
+    <h2 id="modalTitle">GALAXY WORLD</h2>
+    <p id="modalDesc"></p>
+    <button class="primary" onclick="discoverWorld()">✨ DISCOVER WORLD</button>
+  </div>
+</div>
+
+<script>
+const worlds = [
+  {name:"GALAXY WORLD",emoji:"🌌",desc:"Explore a universe filled with mysterious planets, distant galaxies and cosmic wonders."},
+  {name:"CYBER WORLD",emoji:"🌆",desc:"Enter a futuristic digital city where technology and imagination meet."},
+  {name:"FANTASY WORLD",emoji:"🏝️",desc:"Discover magical islands, hidden treasures and mysterious places."},
+  {name:"TIME WORLD",emoji:"⏳",desc:"Travel through an interactive timeline and explore different eras."},
+  {name:"QUANTUM WORLD",emoji:"💎",desc:"Discover fascinating physics-inspired experiments and the unknown."}
+];
+
+let xp = Number(localStorage.getItem("mx_xp")) || 0;
+let visited = JSON.parse(localStorage.getItem("mx_visited") || "[]");
+let selected = 0;
+
+function updateProgress() {
+  let level = Math.floor(xp / 100) + 1;
+  let progress = xp % 100;
+
+  document.getElementById("xp").textContent = xp + " XP";
+  document.getElementById("level").textContent = level;
+  document.getElementById("visited").textContent = visited.length + " / 5";
+  document.getElementById("achievements").textContent = visited.length;
+  document.getElementById("bar").style.width = progress + "%";
+  document.getElementById("progressText").textContent =
+    progress + " / 100 XP to next level";
+
+  localStorage.setItem("mx_xp",xp);
+  localStorage.setItem("mx_visited",JSON.stringify(visited));
+}
+
+function enterUniverse() {
+  document.getElementById("worlds").scrollIntoView({behavior:"smooth"});
+}
+
+function openWorld(index) {
+  selected = index;
+  const world = worlds[index];
+
+  document.getElementById("modalEmoji").textContent = world.emoji;
+  document.getElementById("modalTitle").textContent = world.name;
+  document.getElementById("modalDesc").textContent = world.desc;
+  document.getElementById("modal").classList.add("show");
+}
+
+function discoverWorld() {
+  if (!visited.includes(selected)) {
+    visited.push(selected);
+    xp += 25;
+    updateProgress();
+  }
+
+  closeModal();
+
+  if (visited.length === 5) {
+    alert("🏆 AMAZING! You discovered all five worlds!");
+  } else {
+    alert("✨ World discovered! +25 XP");
+  }
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("show");
+}
+
+function closeOutside(event) {
+  if(event.target.id === "modal") closeModal();
+}
+
+updateProgress();
+</script>
+
+</body>
+  </html>
